@@ -49,6 +49,44 @@ class HomeActivity extends StatelessWidget {
                   hintText: 'Search',
                 ),
               ),
+            ),
+            Wrap(
+              spacing: 8.0,
+              runSpacing: 10.0,
+              children: [
+                Container(
+                  child: Image.network('https://picsum.photos/250?image=9'),
+                  width: 100.0,
+                  height: 100.0,
+                ),
+                Container(
+                  child: Image.network('https://picsum.photos/250?image=9'),
+                  width: 100.0,
+                  height: 100.0,
+                ),
+                Container(
+                  child: Image.network('https://picsum.photos/250?image=9'),
+                  width: 100.0,
+                  height: 100.0,
+                ),
+                Container(
+                  child: Image.network('https://picsum.photos/250?image=9'),
+                  width: 100.0,
+                  height: 100.0,
+                ),
+                Container(
+                  child: Image.network('https://picsum.photos/250?image=9'),
+                  width: 100.0,
+                  height: 100.0,
+                ),
+                Container(
+                  child: Image.network('https://picsum.photos/250?image=9'),
+                  width: 100.0,
+                  height: 100.0,
+                ),
+
+
+              ],
             )
           ],
         ),
