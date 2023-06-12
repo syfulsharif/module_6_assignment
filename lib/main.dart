@@ -26,6 +26,23 @@ class HomeActivity extends StatelessWidget {
         title: Text('Photo Gallery'),
         centerTitle: true,
       ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              child: const Center(
+                child: Text(
+                  'Welcome to My Photo Gallery!',
+                  style: TextStyle(
+                    fontSize: 25.0,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            )
+          ],
+        ),
+      ),
     );
   }
 }
