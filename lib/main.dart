@@ -39,6 +39,16 @@ class HomeActivity extends StatelessWidget {
                   ),
                 ),
               ),
+            ),
+            const Padding(
+              padding: EdgeInsets.all(25.0),
+              child: TextField(
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  prefixIcon: Icon(Icons.search),
+                  hintText: 'Search',
+                ),
+              ),
             )
           ],
         ),
