@@ -10,14 +10,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       home: HomeActivity(),
     );
   }
 }
 
 class HomeActivity extends StatelessWidget {
-  const HomeActivity({Key? key}) : super(key: key);
+  HomeActivity({Key? key}) : super(key: key);
   mySnackbar(message, context) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Text(message)),
@@ -27,21 +27,23 @@ class HomeActivity extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {mySnackbar('Photos Uploaded Successfully!', context);},
+        child: Icon(Icons.add),
+      ),
       appBar: AppBar(
-        title: Text('Photo Gallery'),
+        title: const Text('Photo Gallery'),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Container(
-              child: const Center(
-                child: Text(
-                  'Welcome to My Photo Gallery!',
-                  style: TextStyle(
-                    fontSize: 25.0,
-                    fontWeight: FontWeight.bold,
-                  ),
+            const Center(
+              child: Text(
+                'Welcome to My Photo Gallery!',
+                style: TextStyle(
+                  fontSize: 25.0,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
             ),
@@ -61,7 +63,9 @@ class HomeActivity extends StatelessWidget {
               children: [
                 Stack(children: [
                   OutlinedButton(
-                    onPressed: () {mySnackbar('Clicked on photo!', context);},
+                    onPressed: () {
+                      mySnackbar('Clicked on photo!', context);
+                    },
                     child: Image.network(
                       'https://picsum.photos/250?image=9',
                       height: 150,
@@ -75,13 +79,17 @@ class HomeActivity extends StatelessWidget {
                     child: Text(
                       'Captioned',
                       style: TextStyle(
-                          backgroundColor: Colors.white38, color: Colors.black, fontSize: 20.0),
+                          backgroundColor: Colors.white38,
+                          color: Colors.black,
+                          fontSize: 20.0),
                     ),
                   )
                 ]),
                 Stack(children: [
                   OutlinedButton(
-                    onPressed: () {mySnackbar('Clicked on photo!', context);},
+                    onPressed: () {
+                      mySnackbar('Clicked on photo!', context);
+                    },
                     child: Image.network(
                       'https://picsum.photos/250?image=9',
                       height: 150,
@@ -95,13 +103,17 @@ class HomeActivity extends StatelessWidget {
                     child: Text(
                       'Captioned',
                       style: TextStyle(
-                          backgroundColor: Colors.white38, color: Colors.black, fontSize: 20.0),
+                          backgroundColor: Colors.white38,
+                          color: Colors.black,
+                          fontSize: 20.0),
                     ),
                   )
                 ]),
                 Stack(children: [
                   OutlinedButton(
-                    onPressed: () {mySnackbar('Clicked on photo!', context);},
+                    onPressed: () {
+                      mySnackbar('Clicked on photo!', context);
+                    },
                     child: Image.network(
                       'https://picsum.photos/250?image=9',
                       height: 150,
@@ -115,13 +127,17 @@ class HomeActivity extends StatelessWidget {
                     child: Text(
                       'Captioned',
                       style: TextStyle(
-                          backgroundColor: Colors.white38, color: Colors.black, fontSize: 20.0),
+                          backgroundColor: Colors.white38,
+                          color: Colors.black,
+                          fontSize: 20.0),
                     ),
                   )
                 ]),
                 Stack(children: [
                   OutlinedButton(
-                    onPressed: () {mySnackbar('Clicked on photo!', context);},
+                    onPressed: () {
+                      mySnackbar('Clicked on photo!', context);
+                    },
                     child: Image.network(
                       'https://picsum.photos/250?image=9',
                       height: 150,
@@ -135,13 +151,17 @@ class HomeActivity extends StatelessWidget {
                     child: Text(
                       'Captioned',
                       style: TextStyle(
-                          backgroundColor: Colors.white38, color: Colors.black, fontSize: 20.0),
+                          backgroundColor: Colors.white38,
+                          color: Colors.black,
+                          fontSize: 20.0),
                     ),
                   )
                 ]),
                 Stack(children: [
                   OutlinedButton(
-                    onPressed: () {mySnackbar('Clicked on photo!', context);},
+                    onPressed: () {
+                      mySnackbar('Clicked on photo!', context);
+                    },
                     child: Image.network(
                       'https://picsum.photos/250?image=9',
                       height: 150,
@@ -155,17 +175,45 @@ class HomeActivity extends StatelessWidget {
                     child: Text(
                       'Captioned',
                       style: TextStyle(
-                          backgroundColor: Colors.white38, color: Colors.black, fontSize: 20.0),
+                          backgroundColor: Colors.white38,
+                          color: Colors.black,
+                          fontSize: 20.0),
                     ),
                   )
                 ]),
-
               ],
             ),
-
-            // ListView()
+            myListViewContent(),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class myListViewContent extends StatelessWidget {
+  myListViewContent({Key? key}) : super(key: key);
+
+  List team = [
+    {"img": "a", "name": "John Doe", "job": "Graphic Designer"},
+    {"img": "b", "name": "Mark Dawson", "job": "Mobile Developer"},
+    {"img": "a", "name": "Eric Shawn", "job": "Cloud Engineer"},
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.symmetric(vertical: 50.0, horizontal: 20.0),
+      height: 500.0,
+      child: ListView.builder(
+        itemCount: team.length,
+        itemBuilder: (context, index) {
+          return ListTile(
+            leading: Image.asset('images/${team[index]["img"]}.png'),
+            title: Text('${team[index]['name']}'),
+            subtitle: Text('${team[index]['job']}'),
+          );
+        },
       ),
     );
   }
